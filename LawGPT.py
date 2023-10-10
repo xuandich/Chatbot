@@ -26,7 +26,7 @@ base_model = AutoModelForSeq2SeqLM.from_pretrained(
 
 embeddings = SentenceTransformerEmbeddings(model_name="sentence-transformers/multi-qa-mpnet-base-dot-v1")
 
-db = Chroma(persist_directory="ipc_vector_data", embedding_function=embeddings)
+db = Chroma(persist_directory="./Chatbot/ipc_vector_data", embedding_function=embeddings)
 
 pipe = pipeline(
     'text2text-generation',
@@ -47,7 +47,7 @@ qa_chain = RetrievalQA.from_chain_type(llm=local_llm,
 
 with gr.Blocks() as gradioUI:
     
-    gr.Image('lawgptlogo.png')
+    gr.Image('./Chatbot/lawgptlogo.png')
     
     with gr.Row():
         chatbot = gr.Chatbot()
