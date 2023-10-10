@@ -45,27 +45,27 @@ qa_chain = RetrievalQA.from_chain_type(llm=local_llm,
         return_source_documents=True,
         )
 
-#  Comment to run on colab
-# with gr.Blocks() as gradioUI:
+
+with gr.Blocks() as gradioUI:
     
-#     gr.Image('./Chatbot/lawgptlogo.png')
+    gr.Image('./Chatbot/lawgptlogo.png')
     
-#     with gr.Row():
-#         chatbot = gr.Chatbot()
-#     with gr.Row():
-#         input_query = gr.TextArea(label='Input',show_copy_button=True)
+    with gr.Row():
+        chatbot = gr.Chatbot()
+    with gr.Row():
+        input_query = gr.TextArea(label='Input',show_copy_button=True)
 
-#     with gr.Row():
-#         with gr.Column():
-#             submit_btn = gr.Button("Submit", variant="primary")
-#         with gr.Column():
-#             clear_input_btn = gr.Button("Clear Input")
-#         with gr.Column():
-#             clear_chat_btn = gr.Button("Clear Chat")
+    with gr.Row():
+        with gr.Column():
+            submit_btn = gr.Button("Submit", variant="primary")
+        with gr.Column():
+            clear_input_btn = gr.Button("Clear Input")
+        with gr.Column():
+            clear_chat_btn = gr.Button("Clear Chat")
 
-#     submit_btn.click(chat, [chatbot, input_query], chatbot)
-#     submit_btn.click(lambda: gr.update(value=""), None, input_query, queue=False)
-#     clear_input_btn.click(lambda: None, None, input_query, queue=False)
-#     clear_chat_btn.click(lambda: None, None, chatbot, queue=False)
+    submit_btn.click(chat, [chatbot, input_query], chatbot)
+    submit_btn.click(lambda: gr.update(value=""), None, input_query, queue=False)
+    clear_input_btn.click(lambda: None, None, input_query, queue=False)
+    clear_chat_btn.click(lambda: None, None, chatbot, queue=False)
 
-# gradioUI.queue().launch()
+gradioUI.queue().launch()
