@@ -3,7 +3,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import Chroma
 
-loader = DirectoryLoader('data', glob="./*.pdf", loader_cls=PyPDFLoader)
+loader = DirectoryLoader('.Chatbot/data', glob="./*.pdf", loader_cls=PyPDFLoader)
 documents = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=200)
