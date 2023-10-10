@@ -20,7 +20,8 @@ checkpoint = "MBZUAI/LaMini-Flan-T5-783M"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 base_model = AutoModelForSeq2SeqLM.from_pretrained(
     checkpoint,
-    device_map="auto",
+    # device_map="auto",
+    device_map="cpu",
     torch_dtype = torch.float32)
 
 embeddings = SentenceTransformerEmbeddings(model_name="sentence-transformers/multi-qa-mpnet-base-dot-v1")
